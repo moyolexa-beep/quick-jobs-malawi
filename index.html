@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Jobs Malawi</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f6fb;
+color:#333;
+}
+
+header{
+background:linear-gradient(135deg,#4e73df,#6f42c1);
+color:white;
+padding:20px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+header h1{
+font-size:20px;
+}
+
+nav a{
+color:white;
+margin-left:15px;
+text-decoration:none;
+font-weight:500;
+cursor:pointer;
+}
+
+nav a:hover{
+opacity:0.8;
+}
+
+.hero{
+background:linear-gradient(135deg,#6f42c1,#4e73df);
+color:white;
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:18px;
+opacity:0.9;
+}
+
+.container{
+padding:30px;
+max-width:1000px;
+margin:auto;
+}
+
+.section{
+display:none;
+animation:fadeIn 0.4s ease-in-out;
+}
+
+.active{
+display:block;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.search-box{
+margin-bottom:20px;
+display:flex;
+gap:10px;
+}
+
+.search-box input{
+flex:1;
+padding:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+.btn{
+padding:10px 15px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-primary{
+background:#4e73df;
+color:white;
+}
+
+.btn-success{
+background:#1cc88a;
+color:white;
+}
+
+.job-card{
+background:white;
+padding:15px;
+border-radius:8px;
+margin-bottom:15px;
+box-shadow:0 3px 8px rgba(0,0,0,0.05);
+}
+
+.job-card h4{
+color:#4e73df;
+margin-bottom:5px;
+}
+
+form input, form textarea{
+width:100%;
+padding:10px;
+margin-bottom:10px;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+footer{
+text-align:center;
+padding:20px;
+background:#222;
+color:white;
+margin-top:40px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>Quick Jobs Malawi</h1>
+<nav>
+<a onclick="showSection('home')">Home</a>
+<a onclick="showSection('browse')">Browse Jobs</a>
+<a onclick="showSection('post')">Post Job</a>
+</nav>
+</header>
+
+<div class="hero">
+<h2>Find & Post Jobs Across Malawi</h2>
+<p>Connecting Employers & Job Seekers Fast and Easy</p>
+</div>
+
+<div class="container">
+
+<div id="home" class="section active">
+<h3>Welcome</h3>
+<p>Quick Jobs Malawi helps you find work or hire talent quickly across Malawi.</p>
+</div>
+
+<div id="browse" class="section">
+<h3>Browse Jobs</h3>
+
+<div class="search-box">
+<input type="text" id="searchInput" placeholder="Search jobs...">
+<button class="btn btn-primary" onclick="searchJobs()">Search</button>
+</div>
+
+<div id="jobList">
+<div class="job-card">
+<h4>Shop Assistant</h4>
+<p>Location: Blantyre</p>
+</div>
+
+<div class="job-card">
+<h4>Driver</h4>
+<p>Location: Lilongwe</p>
+</div>
+</div>
+</div>
+
+<div id="post" class="section">
+<h3>Post a Job</h3>
+<form onsubmit="addJob(event)">
+<input type="text" id="jobTitle" placeholder="Job Title" required>
+<input type="text" id="jobLocation" placeholder="Location" required>
+<textarea placeholder="Job Description"></textarea>
+<button class="btn btn-success" type="submit">Post Job</button>
+</form>
+</div>
+
+</div>
+
+<footer>
+© 2026 Quick Jobs Malawi | Built by Lisa 🚀
+</footer>
+
+<script>
+function showSection(sectionId){
+document.querySelectorAll('.section').forEach(sec=>{
+sec.classList.remove('active');
+});
+document.getElementById(sectionId).classList.add('active');
+}
+
+function addJob(event){
+event.preventDefault();
+const title=document.getElementById('jobTitle').value;
+const location=document.getElementById('jobLocation').value;
+
+const jobList=document.getElementById('jobList');
+
+const newJob=document.createElement('div');
+newJob.classList.add('job-card');
+newJob.innerHTML=`<h4>${title}</h4><p>Location: ${location}</p>`;
+
+jobList.appendChild(newJob);
+
+alert("Job Posted Successfully!");
+
+document.getElementById('jobTitle').value='';
+document.getElementById('jobLocation').value='';
+
+showSection('browse');
+}
+
+function searchJobs(){
+let input=document.getElementById('searchInput').value.toLowerCase();
+let jobs=document.querySelectorAll('.job-card');
+
+jobs.forEach(job=>{
+if(job.innerText.toLowerCase().includes(input)){
+job.style.display='block';
+}else{
+job.style.display='none';
+}
+});
+}
+</script>
+
+</body>
+</html>

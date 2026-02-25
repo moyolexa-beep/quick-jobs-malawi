@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Jobs Malawi</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins', sans-serif; background:#f4f6f9; }
+
+/* Header */
+header {
+    background: linear-gradient(135deg,#141e30,#243b55);
+    color:white;
+    padding:60px 20px;
+    text-align:center;
+}
+header h1 { font-size:38px; }
+
+/* Navigation */
+nav {
+    background:white;
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    padding:15px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+nav a {
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+}
+
+/* Search */
+.search-box {
+    max-width:600px;
+    margin:30px auto;
+    display:flex;
+}
+.search-box input {
+    flex:1;
+    padding:12px;
+    border-radius:8px 0 0 8px;
+    border:1px solid #ccc;
+}
+.search-box button {
+    padding:12px 20px;
+    border:none;
+    background:#243b55;
+    color:white;
+    border-radius:0 8px 8px 0;
+}
+
+/* Jobs */
+.section {
+    max-width:1100px;
+    margin:40px auto;
+    padding:0 20px;
+}
+.jobs {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+.job-card {
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
+.job-card h3 { color:#243b55; }
+
+/* Post Job Form */
+.form-section {
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    margin-top:40px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
+}
+.form-section input, .form-section textarea {
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+.form-section button {
+    background:#243b55;
+    color:white;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    width:100%;
+}
+
+/* Footer */
+footer {
+    background:#111;
+    color:#aaa;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Quick Jobs Malawi</h1>
+    <p>Find & Post Jobs Across Malawi</p>
+</header>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">Browse Jobs</a>
+    <a href="#">Post Job</a>
+    <a href="#">Login</a>
+</nav>
+
+<div class="search-box">
+    <input type="text" placeholder="Search jobs...">
+    <button>Search</button>
+</div>
+
+<div class="section">
+    <h2>Latest Jobs</h2>
